@@ -1,0 +1,73 @@
+# ======================================================
+# ESSENTIAL TOOLS
+# ======================================================
+
+# Up-to-date package management tools
+pip
+setuptools
+wheel
+
+# Easy logging for monitoring code execution
+loguru
+
+# Environment variables management
+python-dotenv
+
+# pytest for lightweight testing
+# pytest
+
+# ======================================================
+# DATA ANALYSIS 
+# ======================================================
+
+# Numerical computations and arrays (20-30 MB)
+# numpy
+
+# Data manipulation and analysis (built on numpy, 10-20 MB)
+# pandas
+
+# ======================================================
+# KAFKA STREAMING MESSAGE BROKER INTEGRATION
+# ======================================================
+    
+# Kafka Python client (lightweight, ~1 MB)
+# Supports Kafka 3.5+ with KRaft mode (no ZooKeeper required)
+kafka-python-ng
+
+# ======================================================
+# DATABASE INTEGRATION 
+# ======================================================
+
+# Depending on how quickly the rest of this project goes,
+# I may implement a database integration layer. 
+
+# sqlite3
+# - Most popular and accessible: included in Python Std Lib.
+# - Great for beginners, small projects, and teaching.
+# - No install required.
+
+# DuckDB
+# - Growing rapidly in popularity for analytics.
+# - In-process OLAP engine (no server needed).
+# - Super easy to install (just one package).
+# duckdb
+
+
+# VISUALIZATION
+# ======================================================
+
+# Core library for creating visualizations (~30 MB)
+matplotlib
+
+# Statistical data visualization library built on matplotlib (~2-5 MB)
+seaborn
+
+# Interactive plotting library, often used with Shiny apps (~20-25 MB)
+#plotly
+
+# ======================================================
+# GUI BACKEND FOR MATPLOTLIB ANIMATIONS (macOS/Linux only)
+# ======================================================
+
+# Qt-based GUI framework for interactive plotting and animations (~50-60 MB)
+PyQt6; sys_platform != "win32"
