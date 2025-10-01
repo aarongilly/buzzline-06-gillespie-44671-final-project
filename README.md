@@ -8,7 +8,7 @@ GitHub: https://github.com/aarongilly
 
 This repo is the final project for Northwest Missouri State University CSIS 44671 - Streaming Data. It will take place over the course of a couple weeks, which as of this sentence I am just at the start of.
 
-> [!NOTE] TL;DR
+> [!NOTE]  
 > This is a demo project featuring Kafka, Data producer (reading CSV as though it were a stream), data cosumers, and auto-updating visualizations.
 
 This project will be focused around **my own personal biometric data** collected from my [Oura Ring](https://ouraring.com/) over the past ~4 years. I am leveraging data from some pre-existing (outside of this repo) work I've done, using [Google Apps Script](https://developers.google.com/apps-script) with [Oura's API](https://cloud.ouraring.com/v2/docs) to pull my own data to a Google Sheet.
