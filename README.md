@@ -13,7 +13,6 @@ This repo is the final project for Northwest Missouri State University CSIS 4467
 
 This project will be focused around **my own personal biometric data** collected from my [Oura Ring](https://ouraring.com/) over the past ~4 years. I am leveraging data from some pre-existing (outside of this repo) work I've done, using [Google Apps Script](https://developers.google.com/apps-script) with [Oura's API](https://cloud.ouraring.com/v2/docs) to pull my own data to a Google Sheet.
 
-
 ![Overview Image](assets/44671_Final_Project_Overview.excalidraw.png)
 
 Code from the left half of this diagram is not contained within this repo.
