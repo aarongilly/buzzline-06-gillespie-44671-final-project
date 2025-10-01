@@ -13,7 +13,7 @@ __pycache__/
 .DS_Store
 
 # Environment variables file (which could contain sensitive information)
-.env
+# .env # intentinoally not ignoring .env for this project
 
 # Logs and produced data files
 # data/
