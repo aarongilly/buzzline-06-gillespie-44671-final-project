@@ -122,16 +122,23 @@ def update_chart():
     global calories_list, days_list, activity_list
 
     # Create a bar chart using the bar() method.
-    ax.bar(days_list, calories_list, color="skyblue", label="Calories Burned")
+    # Determine bar colors based on calories value
+    bar_colors = [
+        "red" if cal is not None and cal < 2750 
+        else "orange" if cal is not None and cal < 3000 
+        else "green" 
+        for cal in calories_list
+    ]
+    ax.bar(days_list, calories_list, color=bar_colors, label="Calories Burned")
 
     # Plot the activity_list (line chart) on the secondary y-axis
-    ax2.plot(days_list, activity_list, color="orange", marker="o", label="High Activity Time")
-    ax2.set_ylabel("High Activity Time (mins)", color="orange")
-    ax2.tick_params(axis='y', labelcolor="orange")
+    ax2.plot(days_list, activity_list, color="blue", marker="o", label="High Activity Time")
+    ax2.set_ylabel("High Activity Time (mins)", color="blue")
+    ax2.tick_params(axis='y', labelcolor="blue")
 
     # Add legends for both axes
-    ax.legend(loc="upper left")
-    ax2.legend(loc="upper right")
+    # ax.legend(loc="upper left")
+    # ax2.legend(loc="upper right")
 
     # Use the built-in axes methods to set the labels and title
     ax.set_xlabel("Days")
@@ -142,7 +149,6 @@ def update_chart():
     ax.set_xticklabels(days_list, rotation=45, ha="right")
     ax2.yaxis.set_label_position("right")  # Move label to the right
     ax2.yaxis.set_ticks_position("right")  # Ensure ticks are also on the right
-
 
     # Use the tight_layout() method to automatically adjust the padding
     plt.tight_layout()
@@ -201,9 +207,17 @@ def process_message(message: str) -> None:
                 activity_list = []
 
             # Append the extracted score and day to their respective lists
+            # Maintain a maximum of 15 data points in each list
             calories_list.append(total_calories)
             days_list.append(day)
             activity_list.append(high_activity)
+
+            if len(calories_list) > 15:
+                calories_list.pop(0)
+            if len(days_list) > 15:
+                days_list.pop(0)
+            if len(activity_list) > 15:
+                activity_list.pop(0)
 
             # Update the chart
             update_chart()
