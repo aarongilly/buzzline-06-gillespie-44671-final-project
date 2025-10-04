@@ -17,21 +17,27 @@ This project will be focused around **my own personal biometric data** collected
 
 Code from the left half of this diagram is not contained within this repo.
 
-### Input
-
-Input is data gathered from my Oura ring from early 2022 until mid 2025, exported to a `jsonl` file by hand in advance of creating this repo.
-
-> Note: `jsonl` is a file format for streaming json, standing for *[Newline-delimited JSON](https://en.wikipedia.org/wiki/JSON_streaming#JSONL)*.
-
 ### Pipeline
 
 ![pipeline](assets/pipeline.png)
 
 The CSV file is standing in for some sort of on-going, continual data generator. In practice, the `producer` would likely utilize some sort of API (Twitter, Reddit) or in situ data source (manufacturing machine, health monitor). For the sake of simplicity we will substitute JSON utilizing data that *very well could have* come from a data stream - data from my Oura Ring. The `consumer` is operating like a typical consumer would, although its functionality is (intentionally) minimal.
 
+#### Input
+
+Input is data gathered from my Oura ring from early 2022 until mid 2025, exported to a `jsonl` file by hand in advance of creating this repo.
+
+> Note: `jsonl` is a file format for streaming json, standing for *[Newline-delimited JSON](https://en.wikipedia.org/wiki/JSON_streaming#JSONL)*.
+
+#### Producer
+
 In this case, the Producer is acting like a simple passthru - converting the JSON file content to Kafka messages. In practice, Producers often process (filter, add features, etc) source data. 
 
-### Output
+#### Consumer
+
+My Consumer is reading messages from the Kafka topic, then processing them to pull out a few key datapoints, which it then outputs to a continually-updating chart.
+
+#### Output
 
 The final product of the pipeline, for now at least, is a dynamically updating combo chart showing two data points over a rolling 15 day window. 
 
