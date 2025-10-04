@@ -40,14 +40,14 @@ bin/kafka-server-start.sh config/kraft/server.properties
 
 ```zsh
 source .venv/bin/activate
-python3 -m producers.producer_gillespie
+python3 -m producers.oura_producer
 ```
 
 3. start the consumer
 
 ```zsh
 source .venv/bin/activate
-python3 -m consumers.consumer_gillespie
+python3 -m consumers.oura_consumer
 ```
 
 
